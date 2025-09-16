@@ -110,14 +110,17 @@ following:
 
 a) Describe, in your own words, what the `combine` method is doing and
 what it returns.
-The combine method is similar to the merging step on merge sort. After the list has been split into its base cases, the combining step compares the left and right sides of the list indice by indice- if a value on the righthand list is larger than the value on the lefthand list, this implies a disagreement has been found. The minimum between the two is then appended to results, creating an ordered list. This combination continues until the entire list has been reconstructed in order.
+
+    The combine method is similar to the merging step on merge sort. After the list has been split into its base cases, the combining step compares the left and right sides of the list indice by indice- if a value on the righthand list is larger than the value on the lefthand list, this implies a disagreement has been found. The minimum between the two is then appended to results, creating an ordered list. This combination continues until the entire list has been reconstructed in order.
 
 b) Write the work recurrence formula for `num_disagreements_fast`. Please explain how do you have this.
 
-The work formula will be W(n) = 2W(n/2) + O(n). Two recursive branches are made so W(n/2) is multiplied by two, and the /2 inside the operand is because the list is split in half each time. The merging cost is  O(n) as it iterates through  the minimum length of the left and right list, which are both proportional to n.
+    The work formula will be W(n) = 2W(n/2) + O(n). Two recursive branches are made so W(n/2) is multiplied by two, and the /2 inside the operand is because the list is split in half each time. The merging cost is  O(n) as it iterates through  the minimum length of the left and right list, which are both proportional to n.
 
 c) Solve this recurrence using any method you like. Please explain how do you have this.
-Using the brick method, we can see the level of work is evenly distributed. For example, going to the first level of subproblems we see the cost for W(n/2) is O(n/2), and we have 2 W(n/2) subproblems which means the total cost per level is O(n). Therefore, we multiply the cost per level O(n) by maximum number of levels, which is log_2(n). so we have the work is O(nlogn).
+
+
+    Using the brick method, we can see the level of work is evenly distributed. For example, going to the first level of subproblems we see the cost for W(n/2) is O(n/2), and we have 2 W(n/2) subproblems which means the total cost per level is O(n). Therefore, we multiply the cost per level O(n) by maximum number of levels, which is log_2(n). so we have the work is O(nlogn).
 
 
 d) Assuming that your recursive calls to `num_disagreements_fast` are
