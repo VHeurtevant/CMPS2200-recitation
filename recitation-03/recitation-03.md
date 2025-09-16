@@ -111,7 +111,7 @@ following:
 a) Describe, in your own words, what the `combine` method is doing and
 what it returns.
 
-    The combine method is similar to the merging step on merge sort. After the list has been split into its base cases, the combining step compares the left and right sides of the list indice by indice- if a value on the righthand list is larger than the value on the lefthand list, this implies a disagreement has been found. The minimum between the two is then appended to results, creating an ordered list. This combination continues until the entire list has been reconstructed in order.
+ The combine method is similar to the merging step on merge sort. After the list has been split into its base cases, the combining step compares the left and right sides of the list indice by indice- if a value on the righthand list is larger than the value on the lefthand list, this implies a disagreement has been found. The minimum between the two is then appended to results, creating an ordered list. This combination continues until the entire list has been reconstructed in order.
 
 b) Write the work recurrence formula for `num_disagreements_fast`. Please explain how do you have this.
 
