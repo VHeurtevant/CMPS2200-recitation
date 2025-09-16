@@ -117,54 +117,23 @@ b) Write the work recurrence formula for `num_disagreements_fast`. Please explai
 The work formula will be W(n) = 2W(n/2) + O(n). Two recursive branches are made so W(n/2) is multiplied by two, and the /2 inside the operand is because the list is split in half each time. The merging cost is  O(n) as it iterates through  the minimum length of the left and right list, which are both proportional to n.
 
 c) Solve this recurrence using any method you like. Please explain how do you have this.
-
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
+Using the brick method, we can see the level of work is evenly distributed. For example, going to the first level of subproblems we see the cost for W(n/2) is O(n/2), and we have 2 W(n/2) subproblems which means the total cost per level is O(n). Therefore, we multiply the cost per level O(n) by maximum number of levels, which is log_2(n). so we have the work is O(nlogn).
 
 
 d) Assuming that your recursive calls to `num_disagreements_fast` are
 done in parallel, write the span recurrence for your algorithm. Please explain how do you have this.
 
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
+For the span recurrence, we simply focus on the longest dependency chain so we ignore the recursive calls as these can be done in parallel. This makes our span recurrence S(n) = S(n/2) + O(n)
 
 e) Solve this recurrence using any method you like. Please explain how do you have this.
 
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
+Unlike the work recurrence, observe that the span recurrence will be leaf dominated as total cost per level decreases with each level, so we have a root dominated case. Therefore the cost will be the cost of the root, O(n).
+
 
 f) If `ranks` is a list of size n, Netflix says it will give you
 lg(n) processors to run your algorithm in parallel. What is the
 upper bound on the runtime of this parallel implementation? (Hint: assume a Greedy
 Scheduler). Please explain how do you have this.
+
+From Brent's theorem, we know the time is bounded above by $\frac{W}{P} + s$. Let $W= O(nlogn), P = logn , S = O(n)$. This then simplifies to $O(n) + O(n)$, which is $\in O(n)$. So we know the upper bound on runtime is O(n). 
 
